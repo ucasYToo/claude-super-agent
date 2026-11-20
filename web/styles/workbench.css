@@ -1,0 +1,223 @@
+.overview-summary {
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+}
+.session-banner {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  color: white;
+  background: linear-gradient(112deg, #172945 20%, #253c60 80%, #354b74);
+  padding: 22px 25px;
+}
+.session-banner::before {
+  content: "";
+  position: absolute;
+  right: -38px;
+  top: 0;
+  bottom: 0;
+  width: 37%;
+  transform: skew(-24deg);
+  pointer-events: none;
+  opacity: 0.5;
+  background: repeating-linear-gradient(90deg, transparent 0 20px, #92a7d227 21px 22px);
+}
+.session-banner > * {
+  position: relative;
+}
+.session-top {
+  gap: 12px;
+}
+.session-name {
+  gap: 8px;
+}
+.session-name .icon {
+  color: #bacaff;
+}
+.session-name h2 {
+  font-size: 15px;
+}
+.badge.live {
+  background: #dcfff017;
+  color: #a6e6c7;
+  border: 1px solid #baf6d42e;
+  font-size: 11px;
+}
+.session-model {
+  font-weight: 630;
+  font-size: clamp(21px, 2.4vw, 30px);
+  letter-spacing: -0.7px;
+  margin: 13px 0 4px;
+}
+.session-info {
+  font: 12px/1.5 var(--mono);
+  color: #ccd6e8;
+  overflow-wrap: anywhere;
+}
+.session-banner .actions {
+  margin-top: 15px;
+}
+.session-banner button {
+  color: #f0f4fc;
+  border-color: #677b97;
+  background: #233a58;
+  padding: 6px 10px;
+  font-size: 12px;
+}
+.session-banner button:hover {
+  background: #355079;
+}
+.metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.metric {
+  padding: 15px 23px 12px;
+  text-decoration: none;
+  color: var(--ink);
+  min-width: 0;
+}
+.metric:nth-child(odd) {
+  border-right: 1px solid var(--line);
+}
+.metric:nth-child(-n + 2) {
+  border-bottom: 1px solid var(--line);
+}
+.metric:hover {
+  background: #f6f8fe;
+  text-decoration: none;
+}
+.metric-label {
+  color: var(--muted);
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 550;
+}
+.metric-label .icon {
+  width: 14px;
+  height: 14px;
+}
+.metric strong {
+  display: block;
+  font: 570 30px/1.15 var(--sans);
+  font-variant-numeric: tabular-nums;
+  margin-top: 6px;
+}
+.overview-columns {
+  grid-template-columns: minmax(0, 1.24fr) minmax(0, 1fr);
+}
+.feed {
+  max-height: 415px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 6px 2px;
+}
+.chat-panel .feed {
+  min-height: 160px;
+  max-height: 340px;
+}
+.message {
+  background: #f2f4f8;
+  padding: 9px 12px;
+  border-radius: 8px;
+  align-self: flex-start;
+  max-width: 92%;
+}
+.message.in {
+  align-self: flex-end;
+  background: #eef1ff;
+}
+.message time {
+  color: var(--muted);
+  font-size: 11px;
+}
+.message .bodytext {
+  margin-top: 4px;
+}
+.chat-empty {
+  display: grid;
+  gap: 5px;
+  place-items: center;
+  align-content: center;
+  flex: 1;
+  text-align: center;
+}
+.chat-empty .icon {
+  width: 26px;
+  height: 26px;
+  color: #687cb0;
+  margin-bottom: 3px;
+}
+.composer {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid #c9d3e3;
+  border-radius: 9px;
+  padding: 9px 11px;
+  margin-bottom: 0;
+}
+.composer > label:first-child {
+  grid-column: 1/-1;
+  font-size: 0;
+  gap: 0;
+}
+.composer textarea {
+  min-height: 52px;
+  border: 0;
+  padding: 2px;
+  resize: vertical;
+  font-size: 14px;
+}
+.composer .attach {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  color: var(--muted);
+  width: fit-content;
+  position: relative;
+}
+.attach:before {
+  content: "+";
+  font-size: 19px;
+  color: var(--accent);
+}
+.attach input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+  width: 100%;
+}
+.attach:focus-within {
+  outline: 2px solid var(--accent);
+}
+@media (max-width: 780px) {
+  .overview-summary,
+  .overview-columns {
+    grid-template-columns: 1fr;
+  }
+  .metric {
+    padding: 11px 16px;
+  }
+  .metric strong {
+    font-size: 24px;
+  }
+  .session-banner {
+    padding: 18px 20px;
+  }
+}
+.overview-summary > .metrics {
+  align-self: stretch;
+}
